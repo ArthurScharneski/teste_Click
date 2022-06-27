@@ -15,7 +15,7 @@
         background-color: burlywood;
         text-align: center;
         line-height: 30vh;
-        font-size: 1em;
+        font-size: 3em;
         text-transform: uppercase;
         color: blueviolet;
     }
@@ -70,7 +70,7 @@
             var inputNumeros = document.getElementById("apenas_numeros");
             var inputLetras = document.getElementById("apenas_letras");
             var box = document.getElementById("box");
-            box.value = "";
+            box.innerHTML = "";
             switch (inputMain.value) {
                 case "0":
                 case "1":
@@ -88,7 +88,7 @@
                     inputLetras.value = inputMain.value;
             }
 
-            box.innerText = inputMain.value;
+            box.innerHTML = inputMain.value;
             inputMain.value = "";
 
 
