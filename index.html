@@ -8,20 +8,88 @@
     <title>Document</title>
 </head>
 <style>
-    div {
+    #box {
         width: 50%;
         height: 30vh;
-        margin: 50vh auto;
-        transform: translateY(-50%);
-        background-color: coral;
+        margin: 0 auto;
+        background-color: burlywood;
+        text-align: center;
+        line-height: 30vh;
+        font-size: 3em;
+        text-transform: uppercase;
+        color: blueviolet;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    #main {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #caractere {
+        text-align: center;
+        margin: 1.1em auto;
+    }
+    
+    label {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    input {
+        text-align: center;
+        height: 1.5rem;
+        font-size: 1.2em;
     }
 </style>
 
 <body>
-    <div onclick="acao()"></div>
+    <div id="box"></div>
+
+    <h1>Digite algum caractere</h1>
+    <input type="text" onkeyup="getEntrada()" placeholder="Digite aqui" id="main">
+    <div id="caractere">
+        <label>Letras
+            <input type="text" id="apenas_letras" disabled>
+        </label>
+
+        <label>Números
+            <input type="text" id="apenas_numeros" disabled>
+        </label>
+
+    </div>
     <script>
-        function acao() {
-            document.write("Ops!");
+        function getEntrada() {
+            var inputMain = document.getElementById("main");
+            var inputNumeros = document.getElementById("apenas_numeros");
+            var inputLetras = document.getElementById("apenas_letras");
+            var box = document.getElementById("box");
+            switch (inputMain.value) {
+                case "0":
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                case "8":
+                case "9":
+                    inputNumeros.value = inputMain.value;
+                    break;
+                default:
+                    inputLetras.value = inputMain.value;
+            }
+
+            box.innerText = inputMain.value;
+            inputMain.value = "";
+
         }
     </script>
 </body>
